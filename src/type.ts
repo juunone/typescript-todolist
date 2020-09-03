@@ -1,0 +1,30 @@
+import Todo from "./Todo";
+
+export enum Priority {
+  High,
+  Medium,
+  Low,
+}
+
+export interface AppState {
+  todos: Todo[];
+}
+
+export const PRIORITY_NAME_MAP: {[ket in Priority]: string} = {
+  [Priority.High]: '높음',
+  [Priority.Medium]: '중간',
+  [Priority.Low]: '낮음',
+};
+
+export interface ActionNewTodo {
+  type: 'newTodo';
+  title: string;
+  priority: Priority;
+}
+
+export interface ActionDeleteTodo {
+  type: 'deleteTodo';
+  id:number;
+}
+
+export type Action = ActionNewTodo | ActionDeleteTodo;
